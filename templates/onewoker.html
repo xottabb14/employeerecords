@@ -1,0 +1,27 @@
+<!-- Created: 04.04.2019 by eduar -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional/EN">
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Список работников.</title>
+    {% endif %}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="PyScripter">
+  </head>
+  <body>
+    {% if user %}
+    <h1>Статистика для сотрудника: {{ user }}</h1>
+    {% else %}
+    <title>Статистика отсутствует!</title>
+    {% endif %}
+  {% if statout %}
+    {% for statout in statout %}
+    <div><p>{{ statout }}</p></div>
+    {% endfor %}
+   {% else %}
+   <h5>Статистики нет!</h5>
+   {% endif %}
+  </body>
+</html>
