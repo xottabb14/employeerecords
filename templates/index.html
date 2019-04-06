@@ -18,6 +18,14 @@
     {% endfor %}
    {% else %}
    <h5>Список пуст!</h5>
-   {% endif %}
+  {% endif %}
+  <h1>Выберите сотрудника для получения полной статистики:</h1>
+  {% if userout %}
+    {% for userout in userout %}
+    <div><p><h3><a href="/{{ userout.lower() }}">{{ userout }}</a></h3></p></div>
+    {% endfor %}
+   {% else %}
+   <h5>Нет данных!</h5>
+  {% endif %}
   </body>
 </html>

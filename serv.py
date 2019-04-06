@@ -21,6 +21,7 @@ def clean_textn (text):
 def index():
     base = read_file("base.txt")
     baseout = []
+    userout = []
     for s in base:
         stlst = s.split(",")
         namef = stlst[0]
@@ -33,12 +34,13 @@ def index():
                 text = "НА РАБОТЕ."
         cur_str = namef+" ******** IP компьютера: "+hostname+" Сейчас "+text
         baseout.append(cur_str)
-    return render_template('index.html', title='Список работников.', baseout=baseout)
+        userout.append(namef)
+    return render_template('index.html', title='Список работников.', baseout=baseout, userout=userout)
 
 @app.route('/<command>', methods=['GET'])
 def command(command):
     base = read_file("base.txt")
-    fname = command+".txt"
+    fname = command.lower()+".txt"
     fout = []
     fout_revers = []
     for s in base:
